@@ -270,9 +270,14 @@ def zz():
 					#print("Please wait i need to scaning your network")
 					place=region(ipaddr); #Find country
 					#k=requests.get("http://ip-api.com/json/"+a).json()["country"];
-					print"IP: {0} \nplace: {1} \nPort: {2}\n========".format(ipaddr,place,port); # print
+					print"======================================================="
+					print"IP: {0} \nplace: {1} \nPort: {2}".format(ipaddr,place,port); # print
+					print"===============Press Ctrl+C to stop Scan==============="
 				else:
-					print"N/A"
+					print"======================================================="
+					print"N/A -- This is a Local Process Not connected to WAN"
+					print"Using Port: {0}".format(port); # print
+					print"===============Press Ctrl+C to stop Scan==============="
 					#time.sleep(1);
 					#get_menu_choice()
 		except (TypeError, ValueError):
