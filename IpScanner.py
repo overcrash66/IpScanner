@@ -8,8 +8,12 @@ import threading
 import signal
 import requests
 from queue import Queue
+import signal
 os.system('color 0c')  #set text color to bright red [only works in final produced .exe (cmd type prompt)]
-
+def signal_handler(sig, frame):
+    print('You pressed Ctrl+C!')
+    get_menu_choice()
+signal.signal(signal.SIGINT, signal_handler)
 #Menu 1:
 def start():
 	bb=raw_input("Please enter IP or Domain Address to Geo locat: ")
@@ -269,8 +273,8 @@ def zz():
 					print"IP: {0} \nplace: {1} \nPort: {2}\n========".format(ipaddr,place,port); # print
 				else:
 					print"N/A"
-					time.sleep(1);
-					get_menu_choice()
+					#time.sleep(1);
+					#get_menu_choice()
 		except (TypeError, ValueError):
 				time.sleep(4);
 				get_menu_choice()
@@ -423,7 +427,7 @@ def s3000():
 #Menu chooser
 def get_menu_choice():
 	def print_menu():		# Your menu design here
-		print(30 * "-", "OC66 Network MENU", 30 * "-")
+		print(30 * "-", "OC66 Network Tool", 30 * "-")
 		print"1. IP/Domain Geolocation "
 		print"2. IP TRAFFIC LOGGER "
 		print"3. Scan Runing Process " 
